@@ -11,7 +11,8 @@
     "dev:database": "NODE_ENV=develpment sequelize-cli db:migrate && sequelize-cli db:seed:all",
     "dev:migrate": "NODE_ENV=develpment sequelize-cli db:migrate",
     "dev:seed": "NODE_ENV=develpment sequelize-cli db:seed:all",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@graphql-tools/load-files": "^7.0.0",
