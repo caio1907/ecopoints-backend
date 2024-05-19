@@ -14,9 +14,7 @@ module.exports = {
       first_name: 'João',
       last_name: 'Silva',
       email: 'joao.silva@mailinator.com',
-      password: encrypt('123'),
-      created_at: new Date(),
-      updated_at: new Date()
+      password: encrypt('123456')
     }
   ]),
 

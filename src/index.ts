@@ -7,7 +7,7 @@ import schema from './GraphQL';
 import { login } from 'auth';
 
 const app = express();
-const port = 3333;
+const port = process.env.PORT ?? 3333;
 
 app.use(helmet());
 app.disable('x-powered-by');

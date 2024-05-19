@@ -7,8 +7,10 @@ interface UserModel extends Model<InferAttributes<UserModel>, InferCreationAttri
   lastName: string
   email: string
   password: string
-  attempts: number,
+  attempts: number
   token: string
+  created_at: CreationOptional<Date>,
+  updated_at: CreationOptional<Date>
 }
 
 export default sequelize.define<UserModel>('users', {
@@ -26,5 +28,19 @@ export default sequelize.define<UserModel>('users', {
   },
   password: DataTypes.STRING,
   attempts: DataTypes.INTEGER,
-  token: DataTypes.STRING
+  token: DataTypes.STRING,
+  created_at: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  updated_at: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  }
+}, {
+  hooks: {
+    beforeUpdate: (user) => {
+      user.updated_at = new Date();
+    }
+  }
 });
