@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import {  } from 'express-jwt';
-import { jwtConfig } from 'token';
+import { jwtConfig } from './token';
 dotenv.config();
 
 const DEFAULT_MESSAGE_INVALID_USER = 'Você não digitou os dados corretamente ou a sua conta está desativada.';

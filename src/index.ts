@@ -4,7 +4,7 @@ import { graphqlHTTP } from 'express-graphql';
 import cors from 'cors';
 import { expressjwt as jwt } from 'express-jwt';
 import schema from './GraphQL';
-import { login } from 'auth';
+import { login } from './auth';
 
 const app = express();
 const port = process.env.PORT ?? 3333;

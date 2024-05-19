@@ -3,7 +3,7 @@
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "ES2019",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "module": "commonjs",                                /* Specify what module code is generated. */
     "rootDir": "./src",                                  /* Specify the root folder within your source files. */
     "outDir": "./dist",                                  /* Specify an output folder for all emitted files. */
@@ -13,7 +13,8 @@
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
     "baseUrl": "./src",
     "paths": {
-      "@models/*": ["./database/models/*"]
+      "*": ["node_modules/*"],
+      "@models/*": ["database/models/*"]
     }
   }
 }
