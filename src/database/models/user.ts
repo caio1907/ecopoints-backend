@@ -1,4 +1,4 @@
-import { Sequelize, Model, DataTypes, CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
+import { Model, DataTypes, CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import sequelize from './index';
 
 interface UserModel extends Model<InferAttributes<UserModel>, InferCreationAttributes<UserModel>> {
@@ -9,13 +9,14 @@ interface UserModel extends Model<InferAttributes<UserModel>, InferCreationAttri
   password: string
   attempts: number
   token: string
-  created_at: CreationOptional<Date>,
+  created_at: CreationOptional<Date>
   updated_at: CreationOptional<Date>
 }
 
 export default sequelize.define<UserModel>('users', {
   id: {
     primaryKey: true,
+    autoIncrement: true,
     type: DataTypes.INTEGER,
   },
   firstName: DataTypes.STRING,

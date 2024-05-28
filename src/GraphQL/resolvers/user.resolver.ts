@@ -1,11 +1,4 @@
 import Users from '@models/user';
-import { verify } from 'jsonwebtoken';
-
-type User = {
-  firstName: string
-  lastName: string
-  email: string
-}
 
 export default {
   Query: {

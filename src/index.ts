@@ -11,7 +11,7 @@ const port = process.env.PORT ?? 3333;
 
 app.use(helmet());
 app.disable('x-powered-by');
-app.use(cors({origin: true, methods: 'POST', credentials: true}))
+app.use(cors({origin: true, methods: 'POST', credentials: true}));
 
 app.use(express.json());
 

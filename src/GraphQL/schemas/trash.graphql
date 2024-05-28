@@ -1,0 +1,17 @@
+input TrashInput {
+  types: [String!]!
+}
+
+type Trash {
+  id: ID
+  types: [String!]!
+}
+
+type Query {
+  get(id: ID!): Trash
+  getAll: [Trash!]
+}
+
+type Mutation {
+  addTrash(trash: TrashInput!): Trash
+}
