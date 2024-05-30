@@ -3,12 +3,11 @@ import { pbkdf2Sync } from 'crypto';
 
 export default {
   Query: {
-    me: async (root: any, args: any, context: any) => {
-      const { authorization } = context.headers
-      const token = authorization.split(' ')[1]
+    me: async (_: any, args: any, context: any) => {
+      const { authorization } = context;
       return Users.findOne({
         where: {
-          token
+          token: authorization
         }
       })
     }

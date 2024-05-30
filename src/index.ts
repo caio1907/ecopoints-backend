@@ -1,6 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
-import { graphqlHTTP } from 'express-graphql';
+import { createHandler } from 'graphql-http/lib/use/express';
 import cors from 'cors';
 import { expressjwt as jwt } from 'express-jwt';
 import schema from './GraphQL';
@@ -21,9 +21,9 @@ app.post('/authenticate', login);
 app.use(
   '/graphql',
   jwt(jwtConfig),
-  graphqlHTTP({
+  createHandler({
     schema,
-    graphiql: true
+    context: req => ({authorization: req.raw.headers.authorization?.split(' ')?.[1]}),
   })
 );
 
