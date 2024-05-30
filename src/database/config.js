@@ -1,11 +1,11 @@
 require('dotenv').config();
 
 module.exports = {
-  host: process.env.MYSQL_HOST,
-  database: process.env.MYSQL_DATABASE,
-  username: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  dialect: process.env.DB_DIALECT || 'mysql',
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_DB,
+  username: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  dialect: process.env.DATABASE_DIALECT || 'postgres',
   storage: './database.sqlite',
   logging: false,
   define: {

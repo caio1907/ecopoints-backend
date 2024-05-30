@@ -28,7 +28,8 @@
     "express-jwt": "^8.4.1",
     "graphql": "^16.8.1",
     "helmet": "^7.1.0",
-    "mysql2": "^3.9.7",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {

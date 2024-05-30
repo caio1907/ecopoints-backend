@@ -12,7 +12,7 @@ export default sequelize.define<TrashModel>('trash', {
   id: {
     primaryKey: true,
     autoIncrement: true,
-    type: DataTypes.INTEGER.UNSIGNED
+    type: DataTypes.INTEGER
   },
   types: DataTypes.STRING,
   created_at: {
