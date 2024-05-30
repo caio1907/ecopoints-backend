@@ -5,6 +5,7 @@ import cors from 'cors';
 import { expressjwt as jwt } from 'express-jwt';
 import schema from './GraphQL';
 import { login } from './auth';
+import { jwtConfig } from './token';
 
 const app = express();
 const port = process.env.PORT ?? 3333;
@@ -19,11 +20,7 @@ app.post('/authenticate', login);
 
 app.use(
   '/graphql',
-  jwt({
-    secret: process.env.SECRET_JWT ?? 'ecopoints_secret_phrase',
-    algorithms: ['HS256'],
-    maxAge: '1h'
-  }),
+  jwt(jwtConfig),
   graphqlHTTP({
     schema,
     graphiql: true

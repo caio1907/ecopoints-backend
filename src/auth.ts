@@ -48,8 +48,8 @@ export const login = async (req: Request, response: Response) => {
       if (attempts > 0) {
         user.attempts = 0
       }
-      const { payload, secret, options } = jwtConfig;
-      const token = jwt.sign(payload, secret, options);
+      const { algorithms, maxAge, secret } = jwtConfig;
+      const token = jwt.sign({}, secret.toString(), { algorithm: algorithms[0], expiresIn: maxAge });
 
       user.token = token;
       user.save();

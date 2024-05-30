@@ -1,15 +1,7 @@
-import { Secret, SignOptions } from 'jsonwebtoken';
+import { Params } from 'express-jwt';
 
-type Config = {
-  payload: {}
-  secret: string,
-  options: SignOptions
-}
-
-export const jwtSecret = process.env.SECRET_JWT ?? 'ecopoints_secret_phrase';
-
-export const jwtConfig: Config = {
-  payload: {},
-  secret: jwtSecret,
-  options: {algorithm: 'HS256'}
+export const jwtConfig: Params = {
+  secret: process.env.SECRET_JWT ?? 'ecopoints_secret_phrase',
+  algorithms: ['HS256'],
+  maxAge: '1h'
 };
