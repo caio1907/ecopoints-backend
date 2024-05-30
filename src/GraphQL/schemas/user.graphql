@@ -1,3 +1,10 @@
+input UserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
 type User {
   firstName: String!
   lastName: String!
@@ -6,4 +13,8 @@ type User {
 
 type Query {
   me: User
+}
+
+type Mutation {
+  createUser(user: UserInput): User
 }
