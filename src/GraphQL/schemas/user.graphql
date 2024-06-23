@@ -1,11 +1,19 @@
-input UserInput {
+input UserCreateInput {
   firstName: String!
   lastName: String!
   email: String!
   password: String!
 }
 
+input UserUpdateInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  password: String
+}
+
 type User {
+  id: ID!
   firstName: String!
   lastName: String!
   email: String!
@@ -16,5 +24,6 @@ type Query {
 }
 
 type Mutation {
-  createUser(user: UserInput): User
+  createUser(user: UserCreateInput): User
+  updateUser(user: UserUpdateInput): User
 }

@@ -16,7 +16,7 @@ app.use(cors({origin: true, methods: 'POST', credentials: true}));
 
 app.use(express.json());
 
-app.post('/authenticate', login);
+app.post('/auth', login);
 
 app.use(
   '/graphql',
