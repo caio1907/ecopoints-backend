@@ -6,6 +6,7 @@ import { expressjwt as jwt } from 'express-jwt';
 import schema from './GraphQL';
 import { login } from './auth';
 import { jwtConfig } from './token';
+import authRoutes from './routes/auth.routes';
 
 const app = express();
 const port = process.env.PORT ?? 3333;
@@ -16,7 +17,7 @@ app.use(cors({origin: true, methods: 'POST', credentials: true}));
 
 app.use(express.json());
 
-app.post('/auth', login);
+app.use('/auth', authRoutes)
 
 app.use(
   '/graphql',

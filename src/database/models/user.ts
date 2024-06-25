@@ -20,7 +20,7 @@ export default sequelize.define<UserModel>('users', {
     type: DataTypes.INTEGER,
   },
   firstName: DataTypes.STRING,
-  lastName:DataTypes.STRING,
+  lastName: DataTypes.STRING,
   email: {
     type: DataTypes.STRING,
     validate: {
@@ -29,7 +29,10 @@ export default sequelize.define<UserModel>('users', {
   },
   password: DataTypes.STRING,
   attempts: DataTypes.INTEGER,
-  token: DataTypes.STRING,
+  token: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW

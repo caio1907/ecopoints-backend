@@ -64,6 +64,17 @@ export const login = async (req: Request, response: Response) => {
   });
 }
 
+export const logout = (request: Request, response: Response) => {
+  const { authorization } = request.headers;
+  const token = authorization?.split(' ')?.[1];
+  try {
+    Users.update({token: ''}, {where: {token: token}});
+  } catch (error) {
+    console.error(error);
+  }
+  return response.json(true);
+}
+
 export const Encrypt = (value: string) => {
   return crypto.pbkdf2Sync(value, process.env.SECRET_JWT ?? 'ecopoints_secret_phrase', 1000, 64, 'sha512').toString('hex');
 }
